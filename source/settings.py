@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n)-zr5fm*3dvd7dj@$t%1zuj_(v#e)uh33i1&*v76l5_4q+w9a'
 
 
-
+#Ale
 # Application definition
 
 INSTALLED_APPS = [
