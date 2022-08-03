@@ -17,11 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from .views import Index
+from .views import Index, dameFecha
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Index,name='index'),
+    path('fecha/', dameFecha)
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
