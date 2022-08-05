@@ -8,5 +8,6 @@ class Noticia(models.Model):
    fecha = models.DateTimeField(auto_now_add=True)
    texto = models.TextField(null=True)
    activo = models.BooleanField(default=True)
+   
 
   
