@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n)-zr5fm*3dvd7dj@$t%1zuj_(v#e)uh33i1&*v76l5_4q+w9a'
 
 
-
+#Ale
 # Application definition
 
 INSTALLED_APPS = [
@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Noticias',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ar'
 
 TIME_ZONE = 'UTC'
 
@@ -108,9 +110,11 @@ STATICFILES_DIRS = (
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 django_heroku.settings(locals())

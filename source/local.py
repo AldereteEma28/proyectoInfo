@@ -8,9 +8,10 @@ DATABASES = {
         "ENGINE" : "django.db.backends.mysql",
         "NAME": 'projectodjango',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '199315Ale',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
 
+#Ale
