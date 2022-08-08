@@ -1,0 +1,15 @@
+{% extends "index.html"%}
+{% block content %}
+<section class="w-100 p-4 d-flex justify-content-center mb-3">
+    <div style="width: 26rem;">
+        <form class="form" method="post">
+            {% csrf_token %}
+            <div class="mx-auto">
+                {{form.as_p}}
+            </div>
+            <button type="submit">Registrarse</button>
+            
+        </form>
+    </div>
+</section>
+{% endblock %}
