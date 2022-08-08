@@ -26,14 +26,14 @@
         </ul>
         {%if user.is_authenticated%}
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none" href="#">Logout</a></font></font></button>
+          <button type="button" class="btn btn-outline-primary me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none" href="{%url 'usuario:logout'%}">Logout</a></font></font></button>
         </div>
         {{user.username}}
         {{user.email}}
         {%else%}
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none" href="#">Login</a></font></font></button>
-          <button type="button" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none link-dark " href="#">Register</a></font></font></button>
+          <button type="button" class="btn btn-outline-primary me-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none" href="{%url 'usuario:login'%}">Login</a></font></font></button>
+          <button type="button" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="text-decoration-none link-dark " href="{%url 'usuario:register'%}">Register</a></font></font></button>
         </div>
         {%endif%}
       </header>
