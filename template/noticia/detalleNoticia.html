@@ -1,13 +1,13 @@
 {%extends "index.html"%}
 {%block title%} {{noticia}} {%endblock%}
 {% block content %}
-<h1>
-    {{noticia.titulo}}
-</h1>
-{{noticia.imagen}}
-{{noticia.texto}}
+<h2> {{noticia.titulo}} </h2>
+<img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+
+<h0> {{noticia.texto}}</h0>
 <p>Tipo: {{noticia.categoria}}</p>
 <p>Autor: {{noticia.author}}</p>
 <h4>Fecha de Publicacion</h4>
 {{noticia.fecha}}
 {%endblock%}
+
