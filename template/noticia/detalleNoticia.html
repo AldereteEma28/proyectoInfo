@@ -1,13 +1,17 @@
 {%extends "index.html"%}
 {%block title%} {{noticia}} {%endblock%}
 {% block content %}
-<h2> {{noticia.titulo}} </h2>
-<img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+<div class="text-center">
+<h1>{{noticia.titulo}}</h1>
+<p class="text-muted">Fecha de publicacion: {{noticia.fecha}} por <small class="text-primary" >{{noticia.author|capfirst}}</small></p>
+<div width="100%" >
+    <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+</div>
+<p>{{noticia.texto}}</p>
 
-<h0> {{noticia.texto}}</h0>
-<p>Tipo: {{noticia.categoria}}</p>
-<p>Autor: {{noticia.author}}</p>
-<h4>Fecha de Publicacion</h4>
-{{noticia.fecha}}
+</div>
+<div class="text-left p-4">
+    <strong class=" text-success">Categoria: {{noticia.categoria|capfirst}}</strong>
+</div>
 {%endblock%}
 

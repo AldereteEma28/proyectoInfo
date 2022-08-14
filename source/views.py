@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from apps.noticia.models import Noticia
 
 def Index(request):
-    return render(request, 'index.html')
+    ultima_noticia = Noticia.objects.latest('fecha')
+    context = {'ultima_noticia':ultima_noticia}
+    return render(request, 'index.html',context)
 
