@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 from .models import Noticia
+from django.db.models import Q
 
 def detalleNoticia(request,noticia_id):
     try:
@@ -10,6 +11,11 @@ def detalleNoticia(request,noticia_id):
     return render(request,'noticia/detalleNoticia.html',{'noticia':noticia})
 
 def listarNoticia(request):
-    latest_noticie_list = Noticia.objects.order_by('-fecha')[:5]
+    busqueda = request.POST.get("buscar")
+    latest_noticie_list = Noticia.objects.all()
+    if busqueda:
+        latest_noticie_list = Noticia.objects.filter(
+            Q(categoria__nombre__icontains = busqueda)
+        ).distinct()
     context = {'latest_noticie_list': latest_noticie_list}
     return render(request, 'noticia/listarNoticia.html',context)
