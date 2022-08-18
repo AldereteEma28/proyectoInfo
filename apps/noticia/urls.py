@@ -6,4 +6,5 @@ app_name="noticia"
 urlpatterns = [
     path('NoticiasMain',views.listarNoticia, name = 'listarNoticia'),
     path('<int:noticia_id>/', views.detalleNoticia, name = 'detalleNoticia'),
+    path('noticia/new/', views.CrearNoticia, name='crearnoticia'),
 ]

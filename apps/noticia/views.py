@@ -1,6 +1,8 @@
 from django.http import Http404
 from django.shortcuts import render
 from .models import Noticia
+from django.template import RequestContext
+from .forms import NoticiaForm
 
 def detalleNoticia(request,noticia_id):
     try:
@@ -13,3 +15,7 @@ def listarNoticia(request):
     latest_noticie_list = Noticia.objects.order_by('-fecha')[:5]
     context = {'latest_noticie_list': latest_noticie_list}
     return render(request, 'noticia/listarNoticia.html',context)
+
+def CrearNoticia(request):
+    form = NoticiaForm()
+    return render (request,'noticia/crearnoticia.html',{'form':form})
