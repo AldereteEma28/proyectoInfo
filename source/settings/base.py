@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'apps.noticia',
     'apps.usuario',
     'apps.comentario',
+    'django_quill',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,34 @@ STATICFILES_DIRS = (
     )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
+
+QUILL_CONFIGS = {
+    'default':{
+        'theme': 'snow',
+        'modules': {
+            'syntax': True,
+            'toolbar': [
+                ['bold', 'italic', 'underline', 'strike'], 
+                ['blockquote', 'code-block', 'link'],
+
+                [{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],
+                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+
+                [{ 'size': ['small', True, 'large', 'huge'] }],
+                [{ 'header': [1, 2, 3, 4, 5, 6, False] }],
+
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+
+                ['clean']
+            ]
+        }
+    }
+}
 # Default primary key field type
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')

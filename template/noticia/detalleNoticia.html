@@ -7,7 +7,7 @@
 <div width="100%" >
     <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
 </div>
-<p>{{noticia.texto}}</p>
+<p>{{noticia.texto.html|safe }}</p>
 
 </div>
 <div class="text-left p-4">
