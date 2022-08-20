@@ -29,6 +29,10 @@ method="POST">
                 {% endfor %}
             </div>
     </div>
+    <div class="page-header">
+      <a href="{% url 'noticia:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      <h1><a href="/">Formulario</a></h1>
+    </div>
         {% else %}
         <p>No news are available.</p>
         {% endif %}
