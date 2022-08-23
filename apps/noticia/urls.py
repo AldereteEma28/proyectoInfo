@@ -6,4 +6,6 @@ app_name="noticia"
 urlpatterns = [
     path('NoticiasMain',views.listarNoticia, name = 'listarNoticia'),
     path('<int:noticia_id>/', views.detalleNoticia, name = 'detalleNoticia'),
+    path('post/<int:pk>/edit/', views.editarNoticia, name='editarNoticia'),
+    path('noticia/new/', views.crearNoticia, name='crearnoticia'),
 ]
