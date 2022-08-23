@@ -1,4 +1,4 @@
-from .settings import *
+from .base import *
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     "default": {
         "ENGINE" : "django.db.backends.mysql",
-        "NAME": 'project',
+        "NAME": 'ale',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',

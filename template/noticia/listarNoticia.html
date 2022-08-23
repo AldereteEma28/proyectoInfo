@@ -1,0 +1,48 @@
+{%extends "index.html"%}
+{%load static%}
+
+{% block content %}
+<div class="container">
+  
+  <form class="navbar-search w-75 p-3"
+  method="POST">
+    {% csrf_token %}
+    <div class="input-group m-3">
+      <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.POST.buscar }}">
+     
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg></button>
+  
+      <a href="{% url 'noticia:crearnoticia'%}" class="btn btn-primary btn-sm">Crear Noticia</a>
+    </div>
+  
+  </form>
+</div>
+
+{%if latest_noticie_list%}
+{%for noticie in latest_noticie_list%}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12 col-md-9">
+            <div class="row mb-5 p-3 border rounded">
+                <div class="col-3">
+                    <img src="{{ noticie.imagen.url }}" alt="" class="img-fluid">
+                    <p class="lead text-center">{{noticie.fecha}}</p>
+                </div>
+                <div class="col-9">
+                    <a href="{% url 'noticia:detalleNoticia' noticie.id %}"><h3>{{noticie.titulo}}</h3></a>
+                    <span class="badge text-bg-primary">{{noticie.categoria}}</span>
+                    <span class="badge text-bg-success">Autor: {{noticie.author|capfirst}}</span>
+                    <p>{{noticie.texto.html|safe|truncatewords:50}}</p>
+                    <a href="{% url 'noticia:detalleNoticia' noticie.id %}" class="btn btn-warning btn-sm">Seguir Leyendo</a>
+                    <a href="{% url 'noticia:editarNoticia' noticie.id%}"class="btn btn-primary btn-sm">Editar Noticia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  {%endfor%}
+  {%endif%}
+  
+{% endblock %}
