@@ -14,8 +14,8 @@
     <strong class=" text-success">Categoria: {{noticia.categoria|capfirst}}</strong>
 </div>
 <!--- comentarios-->
-<a class="btn btn-default" href="{% url 'comentario:add_comment_to_post' pk %}"></div>
-
+<a class="btn btn-default" href="{% url "comentario:add_comment_to_post" %}" ></div>
+    
     ">Add comment</a>
 <hr>
 
@@ -27,9 +27,7 @@
         <p>{{ comment.text|linebreaks }}</p>
     </div>
 
-<div data-gb-custom-block data-tag="empty">
-
-    <p>No comments here yet :(</p>
+    <p>No hay comentarios  :(</p>
 
 </div>
 {%endblock%}
