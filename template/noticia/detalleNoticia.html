@@ -13,5 +13,24 @@
 <div class="text-left p-4">
     <strong class=" text-success">Categoria: {{noticia.categoria|capfirst}}</strong>
 </div>
+<!--- comentarios-->
+<a class="btn btn-default" href="{% url 'comentario:add_comment_to_post' pk %}"></div>
+
+    ">Add comment</a>
+<hr>
+
+<div data-gb-custom-block data-tag="for"></div>
+
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+
+<div data-gb-custom-block data-tag="empty">
+
+    <p>No comments here yet :(</p>
+
+</div>
 {%endblock%}
 
