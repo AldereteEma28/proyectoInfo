@@ -4,7 +4,7 @@ from apps.noticia.models import Noticia
 # Create your models here.
 class comentario(models.Model):
    
-    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE)
+    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE,related_name='comments')
     comentario = models.TextField(null=True)
     fecha = models.DateTimeField(auto_now_add=True)
     approved_comment = models.BooleanField(default=False)

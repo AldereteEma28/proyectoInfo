@@ -36,7 +36,7 @@
                     <span class="badge text-bg-success">Autor: {{noticie.author|capfirst}}</span>
                     <p>{{noticie.texto.html|safe|truncatewords:50}}</p>
                     <a href="{% url 'noticia:detalleNoticia' noticie.id %}" class="btn btn-warning btn-sm">Seguir Leyendo</a>
-                    <a href="{% url 'noticia:editarNoticia' noticie.id%}"class="btn btn-primary btn-sm">Editar Noticia</a>
+                    <a href="{% url 'noticia:editarNoticia' noticie.id %}" class="btn btn-primary btn-sm">Editar Noticia</a>
                 </div>
             </div>
         </div>

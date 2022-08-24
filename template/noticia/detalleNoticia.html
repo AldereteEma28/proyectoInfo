@@ -13,5 +13,20 @@
 <div class="text-left p-4">
     <strong class=" text-success">Categoria: {{noticia.categoria|capfirst}}</strong>
 </div>
+
+<hr>
+<div class="container">
+
+    {% for comment in noticia.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.fecha }}</div>
+            <strong>{{ comment.noticia.author }}</strong>
+            <p>{{ comment.comentario|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>Sin Comentarios :(</p>
+</div>
+<a class="btn btn-success" href="{% url 'comentario:add_comment_to_post' pk=noticia.id%}">Add comment</a>
+{% endfor %}
 {%endblock%}
 
