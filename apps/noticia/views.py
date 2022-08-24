@@ -1,7 +1,15 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from .models import Noticia
 from django.db.models import Q
+
+def EliminarNoticia(request,noticia_id):
+    try:
+        noticia = Noticia.objects.get(pk = noticia_id)
+        noticia.delete()
+    except Noticia.DoesNotExist:
+        raise Http404("Pregunta no existe")
+    return redirect('noticia:listarNoticia')
 
 def detalleNoticia(request,noticia_id):
     try:

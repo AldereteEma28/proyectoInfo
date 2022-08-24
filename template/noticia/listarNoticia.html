@@ -25,6 +25,20 @@ method="POST">
                     <div class="mb-1 text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{noticie.fecha}}</font></font></div>
                     <p class="card-text mb-auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{noticie.texto|truncatewords:3}}</font></font></p>
                     <a class="btn btn-primary" href="{% url 'noticia:detalleNoticia' noticie.id %}" >sigue leyendo</a>
+                    <form
+                                            method="POST"
+                                            action="{% url 'noticia:eliminarNoticia' noticie.id %}"
+
+                                          >
+                                            {% csrf_token %}
+                                              
+                                                  <button
+                                                      type="submit"
+                                                      class="btn btn-danger my-4"
+                                                  >
+                                                      Eliminar
+                                                  </button>
+                                          </form>
                 </div>  
                 {% endfor %}
             </div>
