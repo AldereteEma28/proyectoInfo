@@ -16,7 +16,7 @@
 
 <hr>
 <div class="container">
-
+    <a class="btn btn-success" href="{% url 'comentario:add_comment_to_post' pk=noticia.id%}">Add comment</a>
     {% for comment in noticia.comments.all %}
         <div class="comment">
             <div class="date">{{ comment.fecha }}</div>
@@ -26,7 +26,7 @@
     {% empty %}
         <p>Sin Comentarios :(</p>
 </div>
-<a class="btn btn-success" href="{% url 'comentario:add_comment_to_post' pk=noticia.id%}">Add comment</a>
+
 {% endfor %}
 {%endblock%}
 
