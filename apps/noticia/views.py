@@ -1,8 +1,9 @@
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Noticia
+from .models import Noticia, Categoria
 from django.db.models import Q
-from .forms import NoticiaForm
+from .forms import NoticiaForm,CategoriaForm
+from django.contrib import messages
 from django.utils import timezone
 
 def detalleNoticia(request,noticia_id):
@@ -49,3 +50,22 @@ def editarNoticia(request, pk):
     else:
         form = NoticiaForm(instance=post)
     return render(request, 'noticia/editarNoticia.html',{'form': form})
+
+def EliminarNoticia(request,noticia_id):
+    try:
+        noticia = Noticia.objects.get(pk = noticia_id)
+        noticia.delete()
+    except Noticia.DoesNotExist:
+        raise Http404("Noticia no existe")
+    return redirect('noticia:listarNoticia')
+
+def crearCategoria(request):
+    if request.method == "POST":
+        addCategoria = CategoriaForm(request.POST)
+        if addCategoria.is_valid():
+            categoria = addCategoria.save(commit=False)
+            categoria.save()
+            return redirect('noticia:crearnoticia')
+    else:
+        addCategoria = CategoriaForm()
+    return render(request, 'noticia/crearCategoria.html',{'addCategoria': addCategoria})

@@ -7,7 +7,7 @@ from django_quill.fields import QuillField
 # Create your models here.
 
 class Categoria(models.Model):
-   nombre = models.CharField(max_length=300, null=False)
+   nombre = models.CharField(max_length=300, null=False, unique=True)
 
    def __str__(self):
       return self.nombre

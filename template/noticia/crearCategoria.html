@@ -1,0 +1,24 @@
+{%extends "index.html"%}
+{%block title%} Añadir Categoria {%endblock%}
+{% block content %}
+<div class="container text-center">
+    <h2>Añadir Categoria</h2>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        <p>
+            <label for="id_nombre">Añadir Categoria:</label>
+            <input type="text" name="nombre" maxlength="300" required="" id="id_nombre">
+          </p>
+        <button type="submit" class="save btn btn-success">Guardar</button>
+        <button class="btn btn-danger"><a style="text-decoration: none; color: white;" href="{% url 'noticia:crearnoticia'%}">Cancelar</a></button>
+    </form>
+    
+</div>
+{% endblock %}
