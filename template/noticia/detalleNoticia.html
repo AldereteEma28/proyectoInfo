@@ -1,26 +1,28 @@
 {%extends "index.html"%}
 {%block title%} {{noticia}} {%endblock%}
 {% block content %}
-<div class="text-center">
-<h1>{{noticia.titulo}}</h1>
-<p class="text-muted">Fecha de publicacion: {{noticia.fecha}} por <small class="text-primary" >{{noticia.author|capfirst}}</small></p>
-<div width="100%" >
-    <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
-</div>
-<p>{{noticia.texto.html|safe }}</p>
-
-</div>
+<div class="container">
+     <div class="row text-center">
+        <h1>{{noticia.titulo}}</h1>
+        <p class="text-muted">Fecha de publicacion: {{noticia.fecha}} por <small class="text-primary" >{{noticia.author|capfirst}}</small></p>
+        <div class="img-fluid" >
+            <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}">
+        </div>
+        <div class="row">
+            <p class="text-center">{{noticia.texto.html|safe }}</p>
+        </div>
+    </div>
 <div class="text-left p-4">
     <strong class=" text-success">Categoria: {{noticia.categoria|capfirst}}</strong>
 </div>
 
 <hr>
-<div class="container">
+<div class="text-center">
     <a class="btn btn-success" href="{% url 'comentario:add_comment_to_post' pk=noticia.id%}">Add comment</a>
     {% for comment in noticia.comments.all %}
         <div class="comment">
             <div class="date">{{ comment.fecha }}</div>
-            <strong>{{ comment.noticia.author }}</strong>
+            <strong>{{ comment.autor.username }}</strong>
             <p>{{ comment.comentario|linebreaks }}</p>
         </div>
     {% empty %}
@@ -28,5 +30,6 @@
 </div>
 
 {% endfor %}
+</div>
 {%endblock%}
 
