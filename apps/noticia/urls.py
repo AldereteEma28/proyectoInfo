@@ -8,4 +8,6 @@ urlpatterns = [
     path('<int:noticia_id>/', views.detalleNoticia, name = 'detalleNoticia'),
     path('post/<int:pk>/edit/', views.editarNoticia, name='editarNoticia'),
     path('noticia/new/', views.crearNoticia, name='crearnoticia'),
+    path('<int:noticia_id>/eliminar',views.EliminarNoticia, name ='eliminarNoticia' ),
+    path('crearCategoria/', views.crearCategoria, name = 'crearCategoria'),
 ]

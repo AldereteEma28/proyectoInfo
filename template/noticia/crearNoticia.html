@@ -8,6 +8,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-success">Guardar Noticia</button>
+        <a href="{% url 'noticia:crearCategoria'%}"> Añadir nueva categoria</a>
     </form>
+    
 </div>
 {% endblock %}
